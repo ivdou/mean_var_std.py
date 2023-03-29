@@ -1,0 +1,37 @@
+import numpy as np
+
+def calculate(x):
+  A=np.array([[x[0],x[1],x[2]],[x[3],x[4],x[5]],[x[6],x[7],x[8]]])
+  mean_columns=[]
+  mean_rows=[]
+  var_columns=[]
+  var_rows=[]
+  sd_columns=[]
+  sd_rows=[]
+  max_columns=[]
+  max_rows=[]
+  min_columns=[]
+  min_rows=[]
+  sum_columns=[]
+  sum_rows=[]
+  for i in [0,1,2]:
+    mean_columns.append(np.mean(A[:,i]))
+    mean_rows.append(np.mean(A[i]))
+    var_columns.append(np.var(A[:,i]))
+    var_rows.append(np.var(A[i]))
+    sd_columns.append(np.std(A[:,i]))
+    sd_rows.append(np.std(A[i]))
+    max_columns.append(np.max(A[:,i]))
+    max_rows.append(np.max(A[i]))
+    min_columns.append(np.min(A[:,i]))
+    min_rows.append(np.min(A[i]))
+    sum_columns.append(np.sum(A[:,i]))
+    sum_rows.append(np.sum(A[i]))
+
+  mean=[mean_columns,mean_rows,np.mean(A)]
+  var=[var_columns,var_rows,np.var(A)]
+  sd=[sd_columns,sd_rows,np.std(A)]
+  max=[max_columns,min_rows,np.max(A)]
+  min=[min_columns,min_rows,np.min(A)]
+  sum=[sum_columns,sum_rows,np.sum(A)]
+  return {"mean":mean,"variance":var,"standard deviation":sd,"max":max,"min":min,"sum":sum}
